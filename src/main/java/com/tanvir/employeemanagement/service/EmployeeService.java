@@ -1,5 +1,6 @@
 package com.tanvir.employeemanagement.service;
 
+import com.tanvir.employeemanagement.exception.UserNotFoundException;
 import com.tanvir.employeemanagement.model.Employee;
 import com.tanvir.employeemanagement.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class EmployeeService {
     }
 
     public Employee findEmployeeById(Long id){
-        return employeeRepo.findEmployeeById(id).orElseThrow(() -> new UserNotFoundException ("User by Id" + id + "was not found"));
+        return employeeRepo.findEmployeeById(id).orElseThrow(() -> new UserNotFoundException("User by Id" + id + "was not found"));
     }
 
     public void deleteEmployee(Long id){
